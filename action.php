@@ -4,14 +4,13 @@ use dokuwiki\Extension\EventHandler;
 use dokuwiki\Extension\Event;
 
 /**
- * Action Component for the Matomo Plugin
+ * Action Component for the Nu Matomo Plugin
  *
  * @license	GPL 2 (http://www.gnu.org/licenses/gpl.html)
- * @author	 Andreas Gohr <andi@splitbrain.org>
  * @author	 Sascha Leib <sascha.leib(at)kolmio.com>
  */
 
-class action_plugin_matomo extends DokuWiki_Action_Plugin {
+class action_plugin_numatomo extends DokuWiki_Action_Plugin {
 
 	/**
      * Registers a callback functions

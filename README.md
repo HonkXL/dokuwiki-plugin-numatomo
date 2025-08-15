@@ -1,5 +1,5 @@
-# DokuWiki Plugin Matomo
-DokuWiki integration for Matomo web analytics software (formerly "Piwik")
+# DokuWiki Plugin Nu Matomo
+“Nu” DokuWiki integration for Matomo web analytics software (formerly "Piwik")
 
 This is a simple integration plugin that allows you to use the [Matomo](https://matomo.org/) web analytics software (formerly known as "Piwik") with DokuWiki.
 

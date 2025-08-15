@@ -1,8 +1,8 @@
 <?php
 /**
- * Configuration settings for the Ad Hominem template
+ * Configuration settings for the Nu Matomo Plugin
  *
- * @author     Sascha Leib <sascha@leib.be>
+ * @author     Sascha Leib <ad@hominem.info>
  */
 
  /* Server address (e.g. "/analytics/", or "https://analytics.example.com/") */

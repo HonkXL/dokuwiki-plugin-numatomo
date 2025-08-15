@@ -1,6 +1,6 @@
 <?php
 /**
- * English language file for config of the Matomo plugin
+ * English language file for config of the Nu Matomo plugin
  */
 
 $lang['server'] = "Server address:";
