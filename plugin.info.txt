@@ -1,0 +1,7 @@
+base   matomo
+author Sascha Leib
+email  ad@hominem.com
+date   2025-08-14
+name   Matomo Web Analytics Integration Plugin
+desc   Collect visitor information with Matomo
+url    https://www.dokuwiki.org/plugin:matomo
