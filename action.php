@@ -70,7 +70,7 @@ class action_plugin_numatomo extends DokuWiki_Action_Plugin {
 		$code .= DOKU_TAB . DOKU_TAB . "(function() {" . NL;
 		$code .= DOKU_TAB . DOKU_TAB . DOKU_TAB . "var u='{$this->getConf('server')}';" . NL;
 		$code .= DOKU_TAB . DOKU_TAB . DOKU_TAB . "_paq.push(['setTrackerUrl', u+'{$this->getConf('instance')}.php']);" . NL;
-		$code .= DOKU_TAB . DOKU_TAB . DOKU_TAB . "_paq.push(['setSiteId', '{$this->getConf('siteid')}}']);" . NL;
+		$code .= DOKU_TAB . DOKU_TAB . DOKU_TAB . "_paq.push(['setSiteId', '{$this->getConf('siteid')}']);" . NL;
 		$code .= DOKU_TAB . DOKU_TAB . DOKU_TAB . "var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];" . NL;
 		$code .= DOKU_TAB . DOKU_TAB . DOKU_TAB . "g.async=true; g.src=u+'{$this->getConf('instance')}.js'; s.parentNode.insertBefore(g,s);" . NL;
 		$code .= DOKU_TAB . DOKU_TAB . "})();" . NL. DOKU_TAB;
