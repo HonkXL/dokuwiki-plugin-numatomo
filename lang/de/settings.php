@@ -14,4 +14,4 @@ $lang['exclude_o_admins'] = "Andemeldete Admins";
 $lang['_features'] = "Features:";
 $lang['feature-flags'] = "Feature flags:";
 
-$lang['donottrack'] = "Folge der “DoNotTrack”-Einstellung:";
+$lang['donottrack'] = "Folge der <abbr title='Do Not Track'>DNT</abbr>-Einstellung:";

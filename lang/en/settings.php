@@ -14,4 +14,4 @@ $lang['exclude_o_admins'] = "Logged-in Admins";
 $lang['_features'] = "Features:";
 $lang['feature-flags'] = "Feature flags:";
 
-$lang['donottrack'] = "Honour the “DoNotTrack” header:";
+$lang['donottrack'] = "Honour the <abbr title='Do Not Track'>DNT</abbr> header:";
