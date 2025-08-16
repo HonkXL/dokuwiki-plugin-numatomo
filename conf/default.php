@@ -19,3 +19,9 @@ $conf['exclude'] = 'admins';
 
 /* Feature flags */
 $conf['feature-flags'] = 'requireConsent,requireCookieConsent,enableLinkTracking';
+
+/* User flags */
+$conf['exclude'] = 'admins';
+
+/* Honour the DoNotTrack header */
+$conf['donottrack'] = 1;

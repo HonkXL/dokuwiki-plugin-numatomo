@@ -32,7 +32,19 @@ class action_plugin_numatomo extends DokuWiki_Action_Plugin {
 	public function handleHeader(Event $event, $param) {
 
 		global $INFO;
+
+		// is the user logged in?
 		$loggedin = isset($INFO['userinfo']);
+
+		// build the tracker code:
+		$code = NL . DOKU_TAB . DOKU_TAB . "var _paq = window._paq = window._paq || [];" . NL;
+
+		// add the feature flags:
+		foreach (explode(',', $this->getConf('feature-flags')) as $flag) {
+			$code .= DOKU_TAB . DOKU_TAB . "_paq.push(['$flag']);" . NL;
+		}
+
+		// get setting about excluded user groups:
 		$exgrp = $this->getConf('exclude');
 		$exclUser = false;
 		if ($exgrp === 'admins' && ($loggedin && ($INFO['isadmin'] === 1))) {
@@ -40,18 +52,20 @@ class action_plugin_numatomo extends DokuWiki_Action_Plugin {
 		} elseif ($exgrp === 'users' && $loggedin) {
 			$exclUser = true;
 		}
-
-		$code = NL . DOKU_TAB . DOKU_TAB . "var _paq = window._paq = window._paq || [];" . NL;
-
-		foreach (explode(',', $this->getConf('feature-flags')) as $flag) {
-			$code .= DOKU_TAB . DOKU_TAB . "_paq.push(['$flag']);" . NL;
-		}
 		if ($exclUser) {
 			$code .= DOKU_TAB . DOKU_TAB . "_paq.push(['optUserOut']);" . NL;
 		}
+
+		// honour the DoNotTrack header?
+		if ($this->getConf('donottrack') !== 0) {
+			$code .= DOKU_TAB . DOKU_TAB . "_paq.push(['setDoNotTrack', 'true']);" . NL;
+		}
+
+		// useful settings for DokuWiki sites
 		$code .= DOKU_TAB . DOKU_TAB . "_paq.push(['setLinkClasses', ['interwiki','urlextern']]);" . NL;
 		$code .= DOKU_TAB . DOKU_TAB . "_paq.push(['setExcludedQueryParams', ['do']]);" . NL;
-		$code .= DOKU_TAB . DOKU_TAB . "_paq.push(['setDoNotTrack', 'true']);" . NL;
+
+		// continue default code:
 		$code .= DOKU_TAB . DOKU_TAB . "_paq.push(['trackPageView']);" . NL;
 		$code .= DOKU_TAB . DOKU_TAB . "(function() {" . NL;
 		$code .= DOKU_TAB . DOKU_TAB . DOKU_TAB . "var u='{$this->getConf('server')}';" . NL;
@@ -60,8 +74,6 @@ class action_plugin_numatomo extends DokuWiki_Action_Plugin {
 		$code .= DOKU_TAB . DOKU_TAB . DOKU_TAB . "var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];" . NL;
 		$code .= DOKU_TAB . DOKU_TAB . DOKU_TAB . "g.async=true; g.src=u+'{$this->getConf('instance')}.js'; s.parentNode.insertBefore(g,s);" . NL;
 		$code .= DOKU_TAB . DOKU_TAB . "})();" . NL. DOKU_TAB;
-
-		// $code .= '<!-- ' . print_r($INFO, true) . ' -->' . NL;
 
         $event->data['script'][] = [
 			'_data'   => $code

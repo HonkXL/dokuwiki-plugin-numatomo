@@ -30,3 +30,5 @@ $meta['feature-flags']  = array('multicheckbox', '_choices' => array(
 	'enableHeartBeatTimer'
 ), '_other' => 'never');
 
+/* Honour the DoNotTrack header */
+$meta['donottrack'] = array('onoff');

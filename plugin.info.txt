@@ -1,7 +1,7 @@
 base   numatomo
 author Sascha Leib
 email  ad@hominem.com
-date   2025-08-15
+date   2025-08-16
 name   Nu Matomo Plugin
 desc   “Nu style“ web analytics with Matomo (formerly known as “Piwik”)
 url    https://www.dokuwiki.org/plugin:numatomo
